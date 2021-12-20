@@ -78,9 +78,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="angle.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="GUItextRectangle.h" />
