@@ -335,14 +335,6 @@ void flor(double z)
 		glNormal3d(0, 0, 1);
 	}
 
-	for (double a = -angleA; a <= angleH; a += 0.01) {
-		glBegin(GL_TRIANGLES);
-		glVertex3d(qq[0], qq[1], z);
-		glVertex3f(2.5 - cos(a) * r, 7 - sin(a) * r, z);
-		glVertex3f(2.5 - cos(a + 0.01) * r, 7 - sin(a + 0.01) * r, z);
-		glEnd();
-	}
-
 	glBegin(GL_QUADS);
 	glVertex3d(A[0], A[1], z);
 	glVertex3d(B[0], B[1], z);
@@ -371,109 +363,148 @@ void flor(double z)
 }
 
 void wall(double z)
-{
-	
-	glBegin(GL_QUADS);
-	glColor3d(0.2, 0.7, 0.7);
-	normal(A, B1,B, tmp);
+{	
+	glBegin(GL_TRIANGLES);
+	glColor3d(0, 0, 0.7);
+	normal(A, B1, B, tmp);
 	glNormal3dv(tmp);
 	glVertex3d(A[0], A[1], 0);
 	glVertex3d(A1[0], A1[1], z);
 	glVertex3d(B1[0], B1[1], z);
+	glEnd();
+	glBegin(GL_TRIANGLES);
+	glColor3f(1.0f, 0.5f, 0.0f);
+	normal(A, B1,B, tmp);
+	glNormal3dv(tmp);
+	glVertex3d(A[0], A[1], 0);
 	glVertex3d(B[0], B[1], 0);
+	glVertex3d(B1[0], B1[1], z);
 	glEnd();
 
-	glBegin(GL_QUADS);
-	glColor3d(1.0, 0.0, 1.0);
+
+	glBegin(GL_TRIANGLES);
+	glColor3d(0, 0, 0.7);
+	normal(C, B, C1, tmp);
+	glNormal3dv(tmp);
+	glVertex3d(B[0], B[1], 0);
+	glVertex3d(B1[0], B1[1], z);
+	glVertex3d(C1[0], C1[1], z);
+	glEnd();
+	glBegin(GL_TRIANGLES);
+	glColor3f(0.1f, 0.1f, 0.0f);
 	normal(C, B, C1, tmp);
 	glNormal3dv(tmp);
 	glVertex3d(B[0], B[1], 0);
 	glVertex3d(C[0], C[1], 0);
 	glVertex3d(C1[0], C1[1], z);
-	glVertex3d(B1[0], B1[1], z);
 	glEnd();
 
-	glBegin(GL_QUADS);
-	glColor3d(1.0, 1.0, 0.0);
+
+	glBegin(GL_TRIANGLES);
+	glColor3d(0, 0, 0.7);
 	normal(C, C1, D, tmp);
 	glNormal3dv(tmp);
+	glVertex3d(C[0], C[1], 0);
 	glVertex3d(C1[0], C1[1], z);
 	glVertex3d(D1[0], D1[1], z);
-	glVertex3d(D[0], D[1], 0);
+	glEnd();
+	glBegin(GL_TRIANGLES);
+	glColor3f(1.0f, 0.5f, 0.0f);
+	normal(C, C1, D, tmp);
+	glNormal3dv(tmp);
 	glVertex3d(C[0], C[1], 0);
+	glVertex3d(D[0], D[1], 0);
+	glVertex3d(D1[0], D1[1], z);
 	glEnd();
 
-	glBegin(GL_QUADS);
-	glColor3d(1.0, 1.0, 0.0);
+
+	glBegin(GL_TRIANGLES);
+	glColor3d(0, 0, 0.7);
 	normal(E1, E, D, tmp);
 	glNormal3dv(tmp);
+	glVertex3d(D[0], D[1], 0);
 	glVertex3d(D1[0], D1[1], z);
 	glVertex3d(E1[0], E1[1], z);
-	glVertex3d(E[0], E[1], 0);
+	glEnd();
+	glBegin(GL_TRIANGLES);
+	glColor3f(0.1f, 0.1f, 0.0f);
+	normal(E1, E, D, tmp);
+	glNormal3dv(tmp);
 	glVertex3d(D[0], D[1], 0);
+	glVertex3d(E[0], E[1], 0);
+	glVertex3d(E1[0], E1[1], z);
 	glEnd();
 
-	glBegin(GL_QUADS);
-	glColor3d(0.0, 0.0, 1.0);
+
+	glBegin(GL_TRIANGLES);
+	glColor3d(0.0, 0.0, 0.7);
 	normal(E, E1, F, tmp);
 	glNormal3dv(tmp);
 	glVertex3d(E[0], E[1], 0);
 	glVertex3d(E1[0], E1[1], z);
 	glVertex3d(F1[0], F1[1], z);
+	glEnd();
+	glBegin(GL_TRIANGLES);
+	glColor3f(1.0f, 0.5f, 0.0f);
+	normal(E, E1, F, tmp);
+	glNormal3dv(tmp);
+	glVertex3d(E[0], E[1], 0);
 	glVertex3d(F[0], F[1], 0);
+	glVertex3d(F1[0], F1[1], z);
 	glEnd();
 
-	glBegin(GL_QUADS);
-	glColor3d(0.0, 0.0, 1.0);
+
+	glBegin(GL_TRIANGLES);
+	glColor3d(0.0, 0.0, 0.7);
 	normal(G1, G, F, tmp);
 	glNormal3dv(tmp);
+	glVertex3d(F[0], F[1], 0);
+	glVertex3d(F1[0], F1[1], z);
+	glVertex3d(G1[0], G1[1], z);
+	glEnd();
+	glBegin(GL_TRIANGLES);
+	glColor3f(0.1f, 0.1f, 0.0f);
+	normal(G1, G, F, tmp);
+	glNormal3dv(tmp);
+	glVertex3d(F[0], F[1], 0);
 	glVertex3d(G[0], G[1], 0);
 	glVertex3d(G1[0], G1[1], z);
-	glVertex3d(F1[0], F1[1], z);
-	glVertex3d(F[0], F[1], 0);
 	glEnd();
 
-	glBegin(GL_QUADS);
-	glColor3d(0.0, 0.0, 1.0);
+
+	glBegin(GL_TRIANGLES);
+	glColor3d(0.0, 0.0, 0.7);
 	normal(H, G, H1, tmp);
 	glNormal3dv(tmp);
 	glVertex3d(G[0], G[1], 0);
 	glVertex3d(G1[0], G1[1], z);
 	glVertex3d(H1[0], H1[1], z);
+	glEnd();
+	glBegin(GL_TRIANGLES);
+	glColor3f(1.0f, 0.5f, 0.0f);
+	normal(H, G, H1, tmp);
+	glNormal3dv(tmp);
+	glVertex3d(G[0], G[1], 0);
 	glVertex3d(H[0], H[1], 0);
+	glVertex3d(H1[0], H1[1], z);
 	glEnd();
 
-	glBegin(GL_QUADS);
-	glColor3d(0.5, 0.5, 1);
-	for (double a = -angleA; a <= angleH; a += 0.01) {
-		double x1 = 2.5 - cos(a) * r;
-		double y1 = 7.0 - sin(a) * r;
-		double x2 = 2.5 - cos(a + 0.01) * r;
-		double y2 = 7.0 - sin(a + 0.01) * r;
-		double xx1[3], xx2[3], xx3[3], xx4[3];
-		xx1[0] = x1;
-		xx1[1] = y1;
-		xx1[2] = 0;
 
-		xx2[0] = x1;
-		xx2[1] = y1;
-		xx2[2] = z;
-
-		xx3[0] = x2;
-		xx3[1] = y2;
-		xx3[2] = 0;
-
-		xx4[0] = x2;
-		xx4[1] = y2;
-		xx4[2] = z;
-
-		normal(xx1, xx2, xx3, tmp);
-		glNormal3dv(tmp);
-		glVertex3dv(xx1);
-		glVertex3dv(xx2);
-		glVertex3dv(xx4);
-		glVertex3dv(xx3);
-	}
+	glBegin(GL_TRIANGLES);
+	glColor3d(0, 0, 0.7);
+	normal(A, H, A1, tmp);
+	glNormal3dv(tmp);
+	glVertex3d(H[0], H[1], 0);
+	glVertex3d(H1[0], H1[1], z);
+	glVertex3d(A1[0], A1[1], z);
+	glEnd();
+	glBegin(GL_TRIANGLES);
+	glColor3f(0.1f, 0.1f, 0.0f);
+	normal(A, H, A1, tmp);
+	glNormal3dv(tmp);
+	glVertex3d(H[0], H[1], 0);
+	glVertex3d(A[0], A[1], 0);
+	glVertex3d(A1[0], A1[1], z);
 	glEnd();
 
 }
@@ -490,8 +521,8 @@ void Render(OpenGL *ogl)
 		glEnable(GL_LIGHTING);
 
 	//альфаналожение
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	//glEnable(GL_BLEND);
+	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	//настройка материала
 	GLfloat amb[] = { 0.2, 0.2, 0.1, 1. };
