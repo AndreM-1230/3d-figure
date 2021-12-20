@@ -331,7 +331,7 @@ void flor(double z)
 		glNormal3d(0, 0, -1);
 	}
 	else {
-		glColor4d(1.0, 0.1, 0.66,0.9);
+		glColor4d(1.0, 0.5, 0, 0.9);
 		glNormal3d(0, 0, 1);
 	}
 
@@ -353,9 +353,14 @@ void flor(double z)
 	glVertex3d(G[0], G[1], z);
 	glEnd();
 
-	glBegin(GL_QUADS);
+	glBegin(GL_TRIANGLES);
 	glVertex3d(C[0], C[1], z);
 	glVertex3d(D[0], D[1], z);
+	glVertex3d(E[0], E[1], z);
+	glEnd();
+
+	glBegin(GL_TRIANGLES);
+	glVertex3d(C[0], C[1], z);
 	glVertex3d(E[0], E[1], z);
 	glVertex3d(F[0], F[1], z);
 	glEnd();
