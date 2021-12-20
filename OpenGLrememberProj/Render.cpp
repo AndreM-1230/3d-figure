@@ -335,11 +335,16 @@ void flor(double z)
 		glNormal3d(0, 0, 1);
 	}
 
-	glBegin(GL_QUADS);
+	glBegin(GL_TRIANGLES);
 	glVertex3d(A[0], A[1], z);
 	glVertex3d(B[0], B[1], z);
 	glVertex3d(C[0], C[1], z);
+	glEnd();
+
+	glBegin(GL_TRIANGLES);
+	glVertex3d(A[0], A[1], z);
 	glVertex3d(H[0], H[1], z);
+	glVertex3d(C[0], C[1], z);
 	glEnd();
 
 	glBegin(GL_TRIANGLES);
